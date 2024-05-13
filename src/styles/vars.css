@@ -1,0 +1,80 @@
+/*
+  使用postcss预编译器完成组件库样式的编写
+  postcss好处就是它是渐进式的,想用什么功能就安装插件,不像scss等预编译器一样臃肿
+*/
+
+:root {
+  /* colors */
+  --cw-color-white: #ffffff;
+  --cw-color-black: #000000;
+  --colors: (
+    primary: #409eff,
+    success: #67c23a,
+    warning: #e6a23c,
+    danger: #f56c6c,
+    info: #909399
+  );
+
+  @each $val, $color in var(--colors) {
+    --cw-color-$(val): $(color);
+    @for $i from 3 to 9 by 2 {
+      --cw-color-$(val)-light-$(i): mix(#fff, $(color), .$(i))
+    }
+    --cw-color-$(val)-light-8: mix(#fff, $(color), 0.8);
+    --cw-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  }
+
+  --cw-bg-color: #ffffff;
+  --cw-bg-color-page: #f2f3f5;
+  --cw-bg-color-overlay: #ffffff;
+  --cw-text-color-primary: #303133;
+  --cw-text-color-regular: #606266;
+  --cw-text-color-secondary: #909399;
+  --cw-text-color-placeholder: #a8abb2;
+  --cw-text-color-disabled: #c0c4cc;
+  --cw-border-color: #dcdfe6;
+  --cw-border-color-light: #e4e7ed;
+  --cw-border-color-lighter: #ebeef5;
+  --cw-border-color-extra-light: #f2f6fc;
+  --cw-border-color-dark: #d4d7de;
+  --cw-border-color-darker: #cdd0d6;
+  --cw-fill-color: #f0f2f5;
+  --cw-fill-color-light: #f5f7fa;
+  --cw-fill-color-lighter: #fafafa;
+  --cw-fill-color-extra-light: #fafcff;
+  --cw-fill-color-dark: #ebedf0;
+  --cw-fill-color-darker: #e6e8eb;
+  --cw-fill-color-blank: #ffffff;
+
+  /* border */
+  --cw-border-width: 1px;
+  --cw-border-style: solid;
+  --cw-border-color-hover: var(--cw-text-color-disabled);
+  --cw-border: var(--cw-border-width) var(--cw-border-style)
+    var(--cw-border-color);
+  --cw-border-radius-base: 4px;
+  --cw-border-radius-small: 2px;
+  --cw-border-radius-round: 20px;
+  --cw-border-radius-circle: 100%;
+
+  /*font*/
+  --cw-font-size-extra-large: 20px;
+  --cw-font-size-large: 18px;
+  --cw-font-size-medium: 16px;
+  --cw-font-size-base: 14px;
+  --cw-font-size-small: 13px;
+  --cw-font-size-extra-small: 12px;
+  --cw-font-family: "Helvetica Neue", Helvetica, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial,
+    sans-serif;
+  --cw-font-weight-primary: 500;
+
+  /*disabled*/
+  --cw-disabled-bg-color: var(--cw-fill-color-light);
+  --cw-disabled-text-color: var(--cw-text-color-placeholder);
+  --cw-disabled-border-color: var(--cw-border-color-light);
+
+  /*animation*/
+  --cw-transition-duration: 0.3s;
+  --cw-transition-duration-fast: 0.2s;
+}

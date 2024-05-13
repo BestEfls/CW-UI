@@ -1,0 +1,129 @@
+.cw-button {
+  --cw-button-font-weight: var(--cw-font-weight-primary);
+  --cw-button-border-color: var(--cw-border-color);
+  --cw-button-bg-color: var(--cw-fill-color-blank);
+  --cw-button-text-color: var(--cw-text-color-regular);
+  --cw-button-disabled-text-color: var(--cw-disabled-text-color);
+  --cw-button-disabled-bg-color: var(--cw-fill-color-blank);
+  --cw-button-disabled-border-color: var(--cw-border-color-light);
+  --cw-button-hover-text-color: var(--cw-color-primary);
+  --cw-button-hover-bg-color: var(--cw-color-primary-light-9);
+  --cw-button-hover-border-color: var(--cw-color-primary-light-7);
+  --cw-button-active-text-color: var(--cw-button-hover-text-color);
+  --cw-button-active-border-color: var(--cw-color-primary);
+  --cw-button-active-bg-color: var(--cw-button-hover-bg-color);
+  --cw-button-outline-color: var(--cw-color-primary-light-5);
+  --cw-button-active-color: var(--cw-text-color-primary);
+}
+
+.cw-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--cw-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--cw-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: var(--cw-button-bg-color);
+  border: var(--cw-border);
+  border-color: var(--cw-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--cw-font-size-base);
+  border-radius: var(--cw-border-radius-base);
+  & + & {
+    margin-left: 12px;
+  }
+  &:hover{
+    color: var(--cw-button-hover-text-color);
+    border-color: var(--cw-button-hover-border-color);
+    background-color: var(--cw-button-hover-bg-color);
+    outline: none;
+  }
+  &:active {
+    color: var(--cw-button-active-text-color);
+    border-color: var(--cw-button-active-border-color);
+    background-color: var(--cw-button-active-bg-color);
+    outline: none;
+  }
+
+  &.is-plain {
+    --cw-button-hover-text-color: var(--cw-color-primary);
+    --cw-button-hover-bg-color: var(--cw-fill-color-blank);
+    --cw-button-hover-border-color: var(--cw-color-primary);
+  }
+  /*round*/
+  &.is-round {
+    border-radius: var(--cw-border-radius-round);
+  }
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+  /*disabled*/
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--cw-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--cw-button-disabled-bg-color);
+    border-color: var(--cw-button-disabled-border-color);
+  }
+  [class*="cw-icon"] + span {
+    margin-left: 6px;
+  }
+}
+
+@each $val in primary, success, warning, info, danger {
+  .cw-button--$(val) {
+    --cw-button-text-color: var(--cw-color-white);
+    --cw-button-bg-color: var(--cw-color-$(val));
+    --cw-button-border-color: var(--cw-color-$(val));
+    --cw-button-outline-color: var(--cw-color-$(val)-light-5);
+    --cw-button-active-color: var(--cw-color-$(val)-dark-2);
+    --cw-button-hover-text-color: var(--cw-color-white);
+    --cw-button-hover-bg-color: var(--cw-color-$(val)-light-3);
+    --cw-button-hover-border-color: var(--cw-color-$(val)-light-3);
+    --cw-button-active-bg-color: var(--cw-color-$(val)-dark-2);
+    --cw-button-active-border-color: var(--cw-color-$(val)-dark-2);
+    --cw-button-disabled-text-color: var(--cw-color-white);
+    --cw-button-disabled-bg-color: var(--cw-color-$(val)-light-5);
+    --cw-button-disabled-border-color: var(--cw-color-$(val)-light-5);
+  }
+  .cw-button--$(val).is-plain {
+    --cw-button-text-color: var(--cw-color-$(val));
+    --cw-button-bg-color: var(--cw-color-$(val)-light-9);
+    --cw-button-border-color: var(--cw-color-$(val)-light-5);
+    --cw-button-hover-text-color: var(--cw-color-white);
+    --cw-button-hover-bg-color: var(--cw-color-$(val));
+    --cw-button-hover-border-color: var(--cw-color-$(val));
+    --cw-button-active-text-color: var(--cw-color-white);
+  }
+}
+.cw-button--large {
+  --cw-button-size: 40px;
+  height: var(--cw-button-size);
+  padding: 12px 19px;
+  font-size: var(--cw-font-size-base);
+  border-radius: var(--cw-border-radius-base);
+}
+.cw-button--small {
+  --cw-button-size: 24px;
+  height: var(--cw-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--cw-border-radius-base) - 1px);
+}
