@@ -2,8 +2,8 @@
   <div>
     <Button type="primary" size="large" ref="buttonRef1">Test</Button>
     <Button type="success" size="large" ref="buttonRef2">Test</Button>
-    <Button type="warning" size="large" ref="buttonRef3">Test</Button>
-    <Button type="danger" size="large" ref="buttonRef4">Test</Button>
+    <Button type="warning" size="large" ref="buttonRef3" icon="user-secret">Test</Button>
+    <Button type="danger" size="large" ref="buttonRef4" :loading="true">Test</Button>
     <div></div>
     <Button type="primary" size="large" plain ref="buttonRef1">Test</Button>
     <Button type="success" size="large" plain ref="buttonRef2">Test</Button>
@@ -38,7 +38,15 @@
       </CollapseItem>
     </Collapse>
     {{ collapseArr }}
-    <div v-on="handlers">2222</div>
+    <div></div>
+    <Icon icon="arrow-up" size="10x" spin type="primary"></Icon>
+    <Icon icon="arrow-up" size="10x" spin color="#ff9999"></Icon>
+    <div></div>
+    <Alert type="primary" title="Hello World" :closeable="false" center></Alert>
+    <Alert type="info" title="Hello World" close-text="close"></Alert>
+    <Alert type="success" title="Hello World" effect="dark" description="this is description" show-icon></Alert>
+    <Alert type="warning" title="Hello World" show-icon></Alert>
+    <Alert type="danger" title="Hello World" description="qweqwewqe"></Alert>
   </div>
 </template>
 
@@ -48,22 +56,8 @@
   import type { ButtonInstance } from './components/Button/types'
   import Collapse from './components/Collapse/Collapse.vue'
   import CollapseItem from './components/Collapse/CollapseItem.vue';
-
-  const buttonRef1 = ref<ButtonInstance>()
-
-  onMounted(() => {
-    console.log(buttonRef1.value?.ref)
-  })
-
-  const handlers = {
-    click() {
-      console.log(123);
-    },
-
-    mouseenter() {
-      console.log(333);
-    }
-  }
+  import Icon from './components/Icon/Icon.vue';
+  import Alert from './components/Alert/Alert.vue';
 
   const collapseArr = ref(['a'])
 </script>

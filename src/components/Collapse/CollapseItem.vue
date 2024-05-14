@@ -3,6 +3,7 @@
     <div class="cw-collapse-item__header" :id="`item-header-${name}`" @click="handleClick"
       :class="{ 'is-disabled': disabled, 'is-active': isActive }">
       <slot name="title">{{ title }}</slot>
+      <Icon icon="angle-right" class="header-angle"></Icon>
     </div>
     <Transition name="cw-slide" v-on="transitionEvents">
       <!-- 
@@ -25,6 +26,7 @@
   import { computed, inject } from 'vue';
   import type { ItemProps } from './types'
   import { collapseContextKey } from './types'
+  import Icon from '../Icon/Icon.vue';
 
   defineOptions({
     name: 'CwCollapseItem',
@@ -67,8 +69,6 @@
       el.style.overflow = ''
     }
   }
-
-  console.log("qwewqe");
 
 </script>
 

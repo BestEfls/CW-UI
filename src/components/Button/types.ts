@@ -1,19 +1,21 @@
-import type { PropType } from "vue";
+import type { PropType } from 'vue'
 
-export type ButtonType = "primary" | "success" | "warning" | "danger" | "info";
-export type ButtonSize = "large" | "small";
+export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info'
+export type ButtonSize = 'large' | 'small'
 // button标签的原生type https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#type
-export type NativeType = "button" | "submit" | "reset";
+export type NativeType = 'button' | 'submit' | 'reset'
 
 export interface ButtonProps {
-  type?: ButtonType;
-  size?: ButtonSize;
-  plain?: boolean;
-  round?: boolean;
-  circle?: boolean;
-  disabled?: boolean;
-  nativeType?: NativeType;
-  autofocus?: boolean;
+  type?: ButtonType
+  size?: ButtonSize
+  plain?: boolean
+  round?: boolean
+  circle?: boolean
+  disabled?: boolean
+  nativeType?: NativeType
+  autofocus?: boolean
+  icon?: string
+  loading?: boolean
 }
 
 /*
@@ -53,8 +55,8 @@ export const ButtonProps2 = {
   disabled: {
     type: Boolean,
   },
-};
+}
 
 export interface ButtonInstance {
-  ref: HTMLButtonElement;
+  ref: HTMLButtonElement
 }

@@ -2,3 +2,5 @@
 @import url(./reset.css);
 @import url(../components/Button/style.css);
 @import url(../components/Collapse/style.css);
+@import url(../components/Icon/style.css);
+@import url(../components/Alert/style.css);
